@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de Personas | Bienvenida</title>  
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #0a58ca 0%, #032d6b 100%);
+            color: white;
+            padding: 100px 0;
+            border-radius: 0 0 50px 50px;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+    </style>
+
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="bi bi-person-rolodex me-2"></i>AgendaPro</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'inicio' %}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contacto' %}">Contactos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section text-center shadow-sm">
+        <div class="container">
+            <h1 class="display-3 fw-bold">¡Bienvenido a tu Agenda!</h1>
+            <p class="lead mb-4">La forma más sencilla de gestionar y organizar tus contactos personales y profesionales.</p>
+            <a href="#opciones" class="btn btn-light btn-lg px-4 shadow-sm fw-bold text-primary">Empezar ahora</a>
+        </div>
+    </header>
+
+    <main id="opciones" class="container my-5">
+        <div class="row g-4 justify-content-center">
+            
+            <div class="col-md-5 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm card-hover">
+                    <div class="card-body text-center p-5">
+                        <div class="display-4 text-primary mb-3">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <h3 class="card-title fw-bold">Mis Personas</h3>
+                        <p class="card-text text-muted">Explora la lista completa de tus contactos registrados en la base de datos.</p>
+                        <a href="{% url 'listaP' %}" class="btn btn-outline-primary mt-3 w-100 fw-bold">Ver Directorio</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm card-hover">
+                    <div class="card-body text-center p-5">
+                        <div class="display-4 text-success mb-3">
+                            <i class="bi bi-person-plus-fill"></i>
+                        </div>
+                        <h3 class="card-title fw-bold">Nueva Persona</h3>
+                        <p class="card-text text-muted">Añade un nuevo contacto con su nombre, teléfono y correo electrónico.</p>
+                        <a href="/crear/" class="btn btn-success mt-3 w-100 fw-bold shadow-sm">Crear Registro</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="text-center py-4 border-top bg-white">
+        <p class="text-muted mb-0">&copy; 2026 Sistema de Agenda - Proyecto Python/Django</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

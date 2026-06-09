@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Contactos | AgendaPro</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        .page-header {
+            background: #212529;
+            color: white;
+            padding: 60px 0;
+        }
+        .table-card {
+            border: none;
+            border-radius: 15px;
+        }
+        .status-badge {
+            font-size: 0.8rem;
+            padding: 0.4em 0.8em;
+            border-radius: 50px;
+        }
+        .btn-action {
+            width: 35px;
+            height: 35px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            transition: 0.2s;
+        }
+        .table thead th {
+            background-color: #2a4968;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: #ffffff;
+            border-top: none;
+        }
+        .avatar-circle {
+            width: 40px;
+            height: 40px;
+            background: #e7f1ff;
+            color: #0d6efd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="bi bi-person-rolodex me-2"></i>AgendaPro</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="{% url 'inicio' %}">Inicio</a>
+                <a class="nav-link active" href="{% url 'contacto'%}">Contactos</a>
+               
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header text-center">
+        <div class="container">
+            <h1 class="display-5 fw-bold">Mis Contactos</h1>
+            <p class="lead text-white">Gestiona y visualiza la información de tu red.</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="card table-card shadow-lg p-4">
+                    
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div class="search-box w-50">
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-0"><i class="bi bi-search"></i></span>
+                                <input type="text" class="form-control bg-light border-0" placeholder="Buscar contacto...">
+                            </div>
+                        </div>
+                        <button class="btn btn-primary fw-bold px-4 shadow-sm">
+                            <i class="bi bi-plus-lg me-2"></i> Nuevo Registro
+                        </button>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Documento</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Correo</th>
+                                    <th>Fecha Nacimiento</th>
+                                    <th>Ciudad</th>
+                                    <th class="text-end">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for persona in personas %}
+                                <tr>
+                                    <td>{{persona.documento}} </td>
+                                    <td>{{persona.nombre}} </td>
+                                    <td>{{persona.apellido}}</td>
+                                    <td class="text-info">{{persona.correo}}</td>
+                                    <td>{{persona.fnacimiento}}</td>
+                                    <td>{{persona.ciudad.nombre}}</td>
+                                    
+                                    <td class="text-end">
+                                        <a href="#" class="btn btn-light btn-action text-primary"><i class="bi bi-pencil"></i></a>
+                                        <a href="#" class="btn btn-light btn-action text-danger"><i class="bi bi-trash"></i></a>
+                                    </td>
+                                </tr>
+                               
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <nav class="mt-4">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled"><a class="page-link border-0 bg-light rounded-circle mx-1" href="#"><i class="bi bi-chevron-left"></i></a></li>
+                            <li class="page-item active"><a class="page-link border-0 rounded-circle mx-1" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link border-0 bg-light text-dark rounded-circle mx-1" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link border-0 bg-light text-dark rounded-circle mx-1" href="#"><i class="bi bi-chevron-right"></i></a></li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center py-4 bg-white border-top text-muted mt-5">
+        <p class="mb-0 small">&copy; 2026 AgendaPro System. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
